@@ -5,6 +5,11 @@ permalink: /404.html
 <script>
   var url=window.location.href;
   //window.location.href = url.replace('://', '://www.');
-  window.location.href = "http://myuqugu.duapp.com";
+  //备案
+  var ulist = url.split('/');
+  ulist[2] = "myuqugu.duapp.com";
+  unew = ulist.join('/');
+  window.location.href = unew;
+
 </script>
 </html>
