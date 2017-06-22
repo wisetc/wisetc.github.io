@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Waterline (ORM)">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sails Waterline (ORM)</title>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/media/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/assets/css/note-detail.css">
+</head>
+<body>
+<div class="wrapper" style="padding-top: 40px;background: #F2F5F7;">
+  <article class="note">
+    <header class="post-header">
+      <h1 class="note__title post-title">Sails Waterline (ORM)</h1>
+      <p class="post-meta">
+        <time>2017-06-22 15:54:11</time><span style="margin-left: 24px;">node.js  •  sails</span>
+        <span style="margin-left: 16px;">大暗扣</span>
+        
+      </p>
+    </header>
+    <div class="note__main">
+      <div class="post-content">
+        <h2 id="waterline-orm">Waterline (ORM)</h2>
+
+<p>默认情况下，Sails集成有一个叫做 Waterline(补充自 orm hook.) 的ORM.</p>
+
+<h3 id="使用-models">使用 Models</h3>
+
+<p>此处文档关注在 model 上由 Waterline 提供的方法. 作为它的补充, 能有额为的方法来自 hooks (例如资源丰富的发布/订阅方法), 可以被暴露在下部的转化器中来提供自定义的方法, 或者在你的应用中被手写来封装自定义代码.</p>
+
+<p>想要一个在Sails/Waterline中对 models 更深的理解, 见<a href="http://sailsjs.com/documentation/concepts/ORM/Models.html">http://sailsjs.com/documentation/concepts/ORM/Models.html</a>.</p>
+
+<p><img src="https://huishuoit.github.io/assets/img/8uRlFi8.png" alt="" /></p>
+
+<h3 id="model-自带的方法">Model 自带的方法</h3>
+
+<p>通常情况下，model 方法是<em>异步的</em>, 意味着你不能够仅仅调用它然后用它的返回值. 你必须用 callbacks, 或者 promises替代. 大多数 model 的自带方法接受一个回调函数作为一个可选的最终的参数。如果回调函数没有被提供, 一个可链的 Query 对象被返回, 它有想 <code class="highlighter-rouge">.where()</code> 和 <code class="highlighter-rouge">.exec()</code>的方法。参见使用 Queries 了解更多。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th>总结</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">.create()</code></td>
+      <td>创建由传入的对象组成的记录</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">.find()</code></td>
+      <td>查找与指定条件匹配的记录数组</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">.findOne()</code></td>
+      <td>查找与指定条件匹配的单个记录，如果没有，则返回null。</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">.update()</code></td>
+      <td>更新符合指定条件的记录，设置attrName：value对的指定对象。</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">.destroy()</code></td>
+      <td>销毁符合指定条件的记录。</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">.findOrCreate()</code></td>
+      <td>查找与指定条件匹配的单个记录，如果不记录则创建它。</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">.count()</code></td>
+      <td>获取符合指定条件的记录总数。</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">.native()/query()</code></td>
+      <td>直接调用底层数据库驱动程序。</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">.stream()</code></td>
+      <td>返回符合指定条件的可读（对象模式）记录流</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="sailsmodels"><code class="highlighter-rouge">sails.models</code></h4>
+
+<p>如果您需要在 Sails 中禁用全局变量, 您还是能够用 <code class="highlighter-rouge">sails.models.&lt;model_identity&gt;</code> 来得到的您的 models.</p>
+
+<p>一个model的<code class="highlighter-rouge">identity</code>不同于他的 <code class="highlighter-rouge">globalId</code>. 这个 <code class="highlighter-rouge">globalId</code> 自动决定于model的名字, 然而<code class="highlighter-rouge">identity</code>全是小写。 例如你定义在 api/models/Kitten.js 中的 model 有一个叫做 Kitten 的 <code class="highlighter-rouge">globalId</code>，但是他的<code class="highlighter-rouge">identity</code>是 kitten。 例如。</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// Kitten === sails.models.kitten</span>
+<span class="nx">sails</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">kitten</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">exec</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">allTheKittens</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// We also could have just used `Kitten.find().exec(...)`</span>
+  <span class="c1">// if we'd left the global variable exposed.</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h3 id="用-promises">用 Promises</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">sails</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">kitten</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">alltheKittens</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//.... </span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+  <span class="c1">//....</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+      </div>
+    </div>
+  </article>
+</div>
+</body>
+</html>

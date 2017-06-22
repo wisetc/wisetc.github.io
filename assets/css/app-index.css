@@ -1,0 +1,100 @@
+
+a {
+  color: #2196f3;
+  cursor: pointer;
+  text-decoration: none;
+}
+.tech-notes {
+  background-color: #f2f5f7;
+  padding-top: 40px;
+  padding-bottom: 48px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.tech-notes__title-wrap {
+  text-align: center;
+  padding-bottom: 24px;
+}
+.tech-notes__title {
+  font-size: 26px;
+  color: #323a3e;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+.tech-notes__description {
+  font-size: 16px;
+  color: #909096;
+  line-height: 1.8;
+}
+.card {
+  position: relative;
+  background-color: white;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 2em;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.36);
+}
+.card__img {
+  height: 192px;
+  display: block;
+  background-image: url(/media/img/index/notes-bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.card__main {
+  padding: 16px;
+  height: 136px;
+  box-sizing: border-box;
+}
+.card__category {
+  font-size: 12px;
+  color: #e59aa1;
+  display: block;
+}
+.card__title {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Roboto", "YuGothic", "Helvetica Neue", Arial, sans-serif;
+  color: #4a5052;
+  margin: 0;
+}
+.card__actions {
+  height: 60px;
+  border-top: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+}
+.card__share-link {
+  display: inline-block;
+  margin: 0 8px;
+  text-decoration: none;
+}
+.card__share-link:first-child {
+  margin-left: 0;
+}
+.card__share-icon {
+  color: #ced7dd;
+}
+.btn-group {
+  width: 100%;
+  text-align: center;
+  margin: 2em 0 0;
+}
+.button {
+  display: inline-block;
+  padding: .8em 1em;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #03a9f4;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+  -moz-transition: background-color 0.15s ease, -moz-box-shadow 0.15s ease, border 0.15s ease, color 0.15s ease;
+  -webkit-transition: background-color 0.15s ease, -webkit-box-shadow 0.15s ease, border 0.15s ease, color 0.15s ease;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, border 0.15s ease, color 0.15s ease;
+}

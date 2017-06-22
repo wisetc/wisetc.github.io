@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="sails generate">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>sails命令行工具之生成器</title>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/media/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/assets/css/note-detail.css">
+</head>
+<body>
+<div class="wrapper" style="padding-top: 40px;background: #F2F5F7;">
+  <article class="note">
+    <header class="post-header">
+      <h1 class="note__title post-title">sails命令行工具之生成器</h1>
+      <p class="post-meta">
+        <time>2017-06-22 15:03:10</time><span style="margin-left: 24px;">node.js  •  sails</span>
+        <span style="margin-left: 16px;">大暗扣</span>
+        
+      </p>
+    </header>
+    <div class="note__main">
+      <div class="post-content">
+        <h1 id="sails-generate">sails generate</h1>
+
+<p>Sails 搭配几个 <em>generators</em> 来帮助您快速的搭建一个新的项目.
+您也可以 <a href="http://sailsjs.com/documentation/concepts/extending-sails/Generators/customGenerators.html">创建您自己的
+generators</a>
+来处理频繁的任务, 或者扩展功能 （例如，通过创建一个 generator 来为您<a href="https://github.com/balderdashy/sails-generate-views-jade">钟爱的模板语言</a>输出视图文件）.</p>
+
+<p>下列 generators 集成于 Sails:</p>
+
+<h4 id="sails-generate-new-appname"><code class="highlighter-rouge">sails generate new &lt;appName&gt;</code></h4>
+
+<p>在一个叫做 <strong>appName</strong> 的文件夹中创建一个新的 Sails 项目. 见<a href="http://sailsjs.com/documentation/reference/cli/sailsnew.html"><code class="highlighter-rouge">sails new</code></a>有用法选项.</p>
+
+<h4 id="sails-generate-api-foo"><code class="highlighter-rouge">sails generate api &lt;foo&gt;</code></h4>
+
+<p>生成 <strong>api/models/Foo.js</strong> 和 <strong>api/controllers/FooController.js</strong></p>
+
+<h4 id="sails-generate-model-foo-attribute1type1-attribute2type2--"><code class="highlighter-rouge">sails generate model &lt;foo&gt; [attribute1:type1, attribute2:type2 ... ]</code></h4>
+
+<p>生成 <strong>api/models/Foo.js</strong>, 加入指定类型的 attributes 可选.</p>
+
+<h4 id="sails-generate-controller-foo-action1-action2-"><code class="highlighter-rouge">sails generate controller &lt;foo&gt; [action1, action2, ...]</code></h4>
+
+<p>生成 <strong>api/controllers/FooController.js</strong>, 加入指定名称的 actions 可选.</p>
+
+<h4 id="sails-generate-adapter-foo"><code class="highlighter-rouge">sails generate adapter &lt;foo&gt;</code></h4>
+
+<p>生成一个 <strong>api/adapters/foo</strong> 包含
+用来构建一个转换器所必要的文件的文件夹.</p>
+
+<h4 id="sails-generate-generator-foo"><code class="highlighter-rouge">sails generate generator &lt;foo&gt;</code></h4>
+
+<p>生成一个 <strong>foo</strong> 包含用来构建一个新的 generator 所需要的文件的文件夹.</p>
+
+<p>翻译自<a href="http://sailsjs.com/documentation/reference/command-line-interface/sails-generate">http://sailsjs.com/documentation/reference/command-line-interface/sails-generate</a></p>
+
+      </div>
+    </div>
+  </article>
+</div>
+</body>
+</html>

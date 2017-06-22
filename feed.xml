@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-06-22T15:54:13+08:00</updated><id>/</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><entry><title type="html">BEM命名方法</title><link href="/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/2017/06/22/bem.html" rel="alternate" type="text/html" title="BEM命名方法" /><published>2017-06-22T00:00:00+08:00</published><updated>2017-06-22T00:00:00+08:00</updated><id>/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/2017/06/22/bem</id><content type="html" xml:base="/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/2017/06/22/bem.html">&lt;h2 id=&quot;介绍&quot;&gt;介绍&lt;/h2&gt;
+
+&lt;p&gt;BEM (Block, Element, Modifier)是一种基于组件的Web开发方法。 其观点是将用户界面划分为独立的块。 即使使用复杂的UI，界面开发也变得简单快捷，并且允许复用现有的代码。&lt;/p&gt;
+
+&lt;h2 id=&quot;block&quot;&gt;Block&lt;/h2&gt;
+
+&lt;p&gt;功能独立的页面组件，可以重复使用。 在HTML中，块由class属性表示。&lt;/p&gt;
+
+&lt;p&gt;特点：&lt;/p&gt;
+
+&lt;p&gt;块名称描述了它的目的（“它是什么？” - 菜单或按钮），而不是其状态（“它是什么样子”？ - 红色或大）。&lt;/p&gt;
+
+&lt;h5 id=&quot;例子&quot;&gt;例子&lt;/h5&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Correct. The `error` block is semantically meaningful --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;error&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Incorrect. It describes the appearance --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;red-text&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;该块不应影响其环境，这意味着您不应设置块的外部边距或定位。&lt;/li&gt;
+  &lt;li&gt;使用BEM时也不应使用标签或ID选择器。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这确保了重新使用块或将它们从一个地方移动到另一个地方是好的。&lt;/p&gt;
+
+&lt;h3 id=&quot;块使用指南&quot;&gt;块使用指南&lt;/h3&gt;
+
+&lt;h4 id=&quot;嵌套&quot;&gt;嵌套&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;blocks 能够相互嵌套&lt;/li&gt;
+  &lt;li&gt;你可以有任意层级的嵌套&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;例子-1&quot;&gt;例子&lt;/h5&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `header` block --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;header&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Nested `logo` block --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;logo&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Nested `search-form` block --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;element&quot;&gt;Element&lt;/h2&gt;
+
+&lt;p&gt;块的组成部分，它不能离开块独立使用。&lt;/p&gt;
+
+&lt;p&gt;特点：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;元素名称描述其目的（“这是什么？” - 类目，文本等），而不是其状态（“什么类型，或什么样子”？ - 红色，大等）。&lt;/li&gt;
+  &lt;li&gt;元素全名的结构是&lt;code class=&quot;highlighter-rouge&quot;&gt;block-name__element-name&lt;/code&gt;。 元素名称与块名称以双下划线（__）分隔开。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;例子-2&quot;&gt;例子&lt;/h5&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `search-form` block --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `input` element in the `search-form` block --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__input&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `button` element in the `search-form` block --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Search&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;元素使用指南&quot;&gt;元素使用指南&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;嵌套&lt;/li&gt;
+  &lt;li&gt;成员&lt;/li&gt;
+  &lt;li&gt;可选&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;嵌套-1&quot;&gt;嵌套&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;元素之间可以相互嵌套&lt;/li&gt;
+  &lt;li&gt;你可有任意层级的嵌套&lt;/li&gt;
+  &lt;li&gt;元素总是block的一部分，而不是另一个元素的一部分。这意味着元素名称不能定义在元素的层次结构下，比如&lt;code class=&quot;highlighter-rouge&quot;&gt;block__elem1__elem2&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;例子-3&quot;&gt;例子&lt;/h5&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!--
+    Correct. The structure of the full element name follows the pattern:
+    `block-name__element-name`
+--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__input&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Search&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--
+    Incorrect. The structure of the full element name doesn't follow the pattern:
+    `block-name__element-name`
+--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Recommended: `search-form__input` or `search-form__content-input` --&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__content__input&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Recommended: `search-form__button` or `search-form__content-button` --&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__content__button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Search&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;成员&quot;&gt;成员&lt;/h4&gt;
+
+&lt;p&gt;一个元素总是一个block的一部分，你不能离开了block单独使用元素。&lt;/p&gt;
+
+&lt;h5 id=&quot;例子-4&quot;&gt;例子&lt;/h5&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Correct. Elements are located inside the `search-form` block --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `search-form` block --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `input` element in the `search-form` block --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__input&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `button` element in the `search-form` block --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Search&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--
+    Incorrect. Elements are located outside of the context of
+    the `search-form` block
+--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `search-form` block --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `input` element in the `search-form` block --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__input&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `button` element in the `search-form` block--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Search&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;可选&quot;&gt;可选&lt;/h4&gt;
+
+&lt;p&gt;元素对于block是可选的，不是所有blocks都有元素。&lt;/p&gt;
+
+&lt;h5 id=&quot;例子-5&quot;&gt;例子&lt;/h5&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `search-form` block --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `input` block --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;input&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `button` block --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Search&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;我该创建块还是元素&quot;&gt;我该创建块还是元素？&lt;/h2&gt;
+
+&lt;h3 id=&quot;创建块&quot;&gt;创建块&lt;/h3&gt;
+
+&lt;p&gt;如果一段代码可能被重用，并且不依赖页面的其他页面组件独立呈现。&lt;/p&gt;
+
+&lt;h3 id=&quot;创建元素&quot;&gt;创建元素&lt;/h3&gt;
+
+&lt;p&gt;如果一段代码不能在没有父实体（块）的情况下单独使用）。&lt;/p&gt;
+
+&lt;p&gt;例外是必须分为较小部分（子元素）的元素，以简化开发。 在BEM方法中，您不能创建元素的元素。 在这种情况下，您不需要创建一个元素，而是创建一个服务块。&lt;/p&gt;
+
+&lt;h2 id=&quot;modifier&quot;&gt;Modifier&lt;/h2&gt;
+
+&lt;p&gt;定义块或元素的外观，状态或行为。&lt;/p&gt;
+
+&lt;p&gt;特点：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;修饰符名称描述其外观（“什么大小”或“哪个主题”等等 - size_s或theme_islands），其状态（“与其他人有什么不同？” - 禁用，重点关注等）及其 行为（“它如何行为？”或“如何响应用户？” - 如directions_left-top）。&lt;/li&gt;
+  &lt;li&gt;修饰符名称通过单个下划线（_）与块或元素名称分隔开。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;修饰器的种类&quot;&gt;修饰器的种类&lt;/h3&gt;
+
+&lt;h4 id=&quot;布尔型&quot;&gt;布尔型&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;仅当修饰符的存在或不存在是重要的时才使用，其值是无关紧要的。 例如，disabled。 如果存在布尔修饰符，则假定其值为true。&lt;/li&gt;
+  &lt;li&gt;修饰符的全名的结构遵循以下模式：
+    &lt;ul&gt;
+      &lt;li&gt;block-name_modifier-name&lt;/li&gt;
+      &lt;li&gt;block-name__element-name_modifier-name&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;例子-6&quot;&gt;例子&lt;/h5&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- The `search-form` block has the `focused` Boolean modifier --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form search-form_focused&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__input&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- The `button` element has the `disabled` Boolean modifier --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__button search-form__button_disabled&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Search&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;键-值型&quot;&gt;键-值型&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;当修饰符值很重要时使用。 例如，“岛相关主题的menu”：menu_theme_islands。&lt;/li&gt;
+  &lt;li&gt;修饰符的全名的结构遵循以下模式：
+    &lt;ul&gt;
+      &lt;li&gt;block-name_modifier-name_modifier-value&lt;/li&gt;
+      &lt;li&gt;block-name__element-name_modifier-name_modifier-value&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;例子-7&quot;&gt;例子&lt;/h5&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- The `search-form` block has the `theme` modifier with the value `islands` --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form search-form_theme_islands&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__input&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- The `button` element has the `size` modifier with the value `m` --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__button search-form__button_size_m&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Search&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- You can't use two identical modifiers with different values simultaneously --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form
+             search-form_theme_islands
+             search-form_theme_lite&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__input&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__button
+                   search-form__button_size_s
+                   search-form__button_size_m&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        Search
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;修饰器使用指南&quot;&gt;修饰器使用指南&lt;/h3&gt;
+
+&lt;h4 id=&quot;修饰器不能单独使用&quot;&gt;修饰器不能单独使用&lt;/h4&gt;
+
+&lt;p&gt;以BEM的观点来看，修改器不能与所修改的块或元素隔离使用。 修饰符应该更改实体的外观，行为或状态，而不是替换它。&lt;/p&gt;
+
+&lt;h5 id=&quot;例子-8&quot;&gt;例子&lt;/h5&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!--
+    Correct. The `search-form` block has the `theme` modifier with
+    the value `islands`
+--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form search-form_theme_islands&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__input&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Search&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Incorrect. The modified class `search-form` is missing --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form_theme_islands&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__input&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form__button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Search&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;混用&quot;&gt;混用&lt;/h2&gt;
+
+&lt;p&gt;一个DOM节点定义多个BEM类的一种技术&lt;/p&gt;
+
+&lt;h5 id=&quot;例子-9&quot;&gt;例子&lt;/h5&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- `header` block --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;header&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--
+        The `search-form` block is mixed with the `search-form` element
+        from the `header` block
+    --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search-form header__search-form&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在这个例子中，我们结合了作为块的search-form和作为元素的&lt;code class=&quot;highlighter-rouge&quot;&gt;header__search-form&lt;/code&gt;的样式以及行为。这种方式让我们在元素&lt;code class=&quot;highlighter-rouge&quot;&gt;header__search-form&lt;/code&gt;中定义外部的几何关系和位置信息，同时块&lt;code class=&quot;highlighter-rouge&quot;&gt;search-form&lt;/code&gt;自身任然是通用的。结果是，我们可以在其他环境中使用块&lt;code class=&quot;highlighter-rouge&quot;&gt;search-form&lt;/code&gt;，因为它不指定任何的padding。这是我们称它独立的原因。&lt;/p&gt;
+
+&lt;h2 id=&quot;如何切换至bem-style-css&quot;&gt;如何切换至BEM-style CSS&lt;/h2&gt;
+
+&lt;p&gt;将在一个项目中实施BEM原则：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;抛开DOM模型并学习创建块。&lt;/li&gt;
+  &lt;li&gt;不要使用ID选择器或标签选择器。&lt;/li&gt;
+  &lt;li&gt;最小化嵌套选择器的数量。&lt;/li&gt;
+  &lt;li&gt;遵照CSS类命名通用约定，以避免名称冲突，命名尽可能语义清晰。&lt;/li&gt;
+  &lt;li&gt;遵循blocks，elements和modifiers的方式。&lt;/li&gt;
+  &lt;li&gt;如果块的CSS属性易于修改，将它们应用为修饰符。&lt;/li&gt;
+  &lt;li&gt;将代码合理切分成小的独立部件，以方便使用各个块。&lt;/li&gt;
+  &lt;li&gt;复用block。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;翻译自&lt;a href=&quot;https://en.bem.info/methodology/quick-start/&quot;&gt;https://en.bem.info/methodology/quick-start/&lt;/a&gt;&lt;/p&gt;</content><author><name>大暗扣</name></author><category term="样式" /><category term="命名" /><summary type="html">介绍</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://img.hb.aicdn.com/4ffc39843519e1a92e4ece39b9f4a8867683e8b9f5ee-cW8909_fw658" /></entry></feed>

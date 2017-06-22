@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="当您启用blueprints并运行sails lift时，框架会检查您的controllers，models和配置，以便自动绑定某些路由。 这些隐含的blueprint routes（有时称为“阴影路由”，甚至只是“阴影”）允许您的应用程序响应某些请求，而无需在config/routes.js文件中手动绑定这些路...">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blueprint Routes</title>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/media/lib/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/assets/css/note-detail.css">
+</head>
+<body>
+<div class="wrapper" style="padding-top: 40px;background: #F2F5F7;">
+  <article class="note">
+    <header class="post-header">
+      <h1 class="note__title post-title">Blueprint Routes</h1>
+      <p class="post-meta">
+        <time>2017-06-22 14:51:26</time><span style="margin-left: 24px;">node.js</span>
+        <span style="margin-left: 16px;">大暗扣</span>
+        
+      </p>
+    </header>
+    <div class="note__main">
+      <div class="post-content">
+        <p>当您启用blueprints并运行<code class="highlighter-rouge">sails lift</code>时，框架会检查您的controllers，models和配置，以便自动绑定某些路由。 这些隐含的blueprint routes（有时称为“阴影路由”，甚至只是“阴影”）允许您的应用程序响应某些请求，而无需在<code class="highlighter-rouge">config/routes.js</code>文件中手动绑定这些路由。 默认情况下，blueprint routes指向其相应的blueprint actions（请参阅下面的“blueprint actions”），并且可以使用自定义代码覆盖。</p>
+
+<p>sails有三种blueprint routes：</p>
+
+<ul>
+  <li><strong>RESTful routes</strong>,路径始终为<code class="highlighter-rouge">/:modelIdentity</code>或<code class="highlighter-rouge">/:modelIdentity/:id</code>。这些路由使用HTTP “verb”来确定采取的行动;例如对<code class="highlighter-rouge">/user</code>的<code class="highlighter-rouge">POST</code>请求将创建一个新用户，并且对<code class="highlighter-rouge">/user/123</code>的<code class="highlighter-rouge">DELETE</code>请求将删除主键为123的用户。在生产环境中，RESTful路由一般应受到策略的保护，以避免未经授权的访问。</li>
+  <li><strong>Shortcut routes</strong>,采取的行动在路径中编码。例如，<code class="highlighter-rouge">/user/create?name=joe</code>快捷方式创建一个新用户，而<code class="highlighter-rouge">/user/update/1?name=mike</code>更新用户＃1。这些路由只响应<code class="highlighter-rouge">GET</code>请求。快捷路线非常适合开发，但一般应在生产环境中禁用。</li>
+  <li><strong>Action routes</strong>，可自动为您的自定义控制器actions创建routes。例如，如果您有一个带有bar方法的<code class="highlighter-rouge">FooController.js</code>文件，那么只要启用了blueprint action routes，将自动为您创建一个<code class="highlighter-rouge">/foo/bar</code>路由。与RESTful和快捷路由不同，动作路由不要求controller具有相应的model文件。</li>
+</ul>
+
+<p>请参阅<a href="http://sailsjs.com/documentation/reference/sails.config/sails.config.blueprints.html">blueprints subsection of the configuration reference</a>，包括如何启用/禁用不同的蓝图路由类型。</p>
+
+      </div>
+    </div>
+  </article>
+</div>
+</body>
+</html>
